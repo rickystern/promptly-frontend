@@ -62,10 +62,10 @@
             </li>
             <li>
               <router-link
-                to="/diary-log"
+                to="/follow-up"
                 class="flex items-center px-6 py-3 text-sm font-medium w-full transition-colors"
                 :class="
-                  $route.path === '/diary-log'
+                  $route.path === '/follow-up'
                     ? 'text-indigo-600 bg-indigo-50 border-r-2 border-indigo-600'
                     : 'text-gray-700 hover:bg-gray-100'
                 "
@@ -74,7 +74,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5 mr-3"
                   :class="
-                    $route.path === '/diary-log'
+                    $route.path === '/follow-up'
                       ? 'text-indigo-500'
                       : 'text-gray-500'
                   "
@@ -85,14 +85,14 @@
                     d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
                   />
                 </svg>
-                Diary Log
+                Follow Ups
               </router-link>
             </li>
           </ul>
         </div>
 
         <!-- Optional second section -->
-        <div>
+        <!-- <div>
           <p
             class="text-xs font-medium text-gray-400 uppercase tracking-wider px-6 mb-2"
           >
@@ -120,10 +120,9 @@
               </a>
             </li>
           </ul>
-        </div>
+        </div> -->
       </nav>
 
-      <!-- User Profile - Full width -->
       <div class="px-6 py-4 border-t border-gray-200 mt-auto">
         <div class="flex items-center">
           <div
@@ -164,7 +163,7 @@
         <h2 class="text-lg font-medium text-gray-800">{{ getPageTitle }}</h2>
 
         <!-- Search bar -->
-        <div class="relative w-64">
+        <!-- <div class="relative w-64">
           <input
             type="text"
             placeholder="Search..."
@@ -184,7 +183,7 @@
               />
             </svg>
           </div>
-        </div>
+        </div> -->
       </header>
 
       <!-- Main Content Area - Takes all remaining space -->
@@ -203,8 +202,8 @@ export default {
   computed: {
     getPageTitle() {
       const routePath = this.$route.path;
-      if (routePath === "/") return "Title";
-      if (routePath === "/diary-log") return "Diary Log";
+      if (routePath === "/") return "Welcome";
+      if (routePath === "/follow-up") return "Diary Log";
       return "Page";
     },
   },
