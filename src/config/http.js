@@ -3,48 +3,47 @@
 // It also sets up request and response interceptors for handling authentication tokens and errors.
 // Importing axios for HTTP requests
 
-import axios from 'axios';
+import axios from "axios";
 
-const api = axios.create({
-  baseURL: 'https://promptly.test/api',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  // Include credentials if using session auth
-  withCredentials: true
+const http = axios.create({
+  baseURL: "http://promptly-api.test",
+  timeout: 60000,
 });
 
+http.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+http.defaults.headers.post["Content-Type"] = "application/json";
+http.defaults.headers.put["Accept"] = "application/json";
+http.defaults.withCredentials = true;
+
 // Request interceptor
-api.interceptors.request.use(
-  config => {
-    // You can modify the request config here
-    // For example, add auth token from localStorage
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+http.interceptors.request.use(
+  (config) => {
+    // Token will be dynamic so we can use any app-specific way to always
+    // fetch the new token before making the call
+
     return config;
   },
-  error => {
+  (error) => {
     return Promise.reject(error);
   }
 );
 
 // Response interceptor
-api.interceptors.response.use(
-  response => {
-    // You can modify successful responses here
+http.interceptors.response.use(
+  (response) => {
     return response;
   },
-  error => {
-    // Handle errors globally
-    if (error.response && error.response.status === 401) {
-      // Handle unauthorized errors (e.g., redirect to login)
-      // router.push('/login');
+  (error) => {
+    if (error.response.status == 401 || error.response.status === 419) {
+      // TODO
+      // implement some code to redirect to login page
+
+      return new Promise(() => {});
     }
+
     return Promise.reject(error);
   }
 );
 
-export default api;
+// Step-4: Export the newly created Axios instance to be used in different locations.
+export default http;

@@ -1,38 +1,37 @@
 // src/router/index.js
-import { createRouter, createWebHistory } from 'vue-router'
-
-// Import components
-import CustomerForm from './components/CustomerForm.vue'
-import Menu from './views/Menu.vue'
-// For components that don't need to be loaded immediately, use lazy loading:
-// const About = () => import('../views/About.vue')
+import { createRouter, createWebHistory } from "vue-router";
 
 // Define your routes
 const routes = [
   {
-    path: '/',
-    name: 'CustomerForm',
-    component: CustomerForm
+    name: "login",
+    path: "/",
+    component: () => import("./views/auth/Login.vue"),
   },
   {
-    path: '/menu',
-    name: 'Menu',
-    component: Menu,
-    props: true // Pass route params as props to the component
+    path: "/dashboard",
+    name: "dashboard",
+    component: () => import("./components/CustomerForm.vue"),
+    meta: {
+      title: "Dashboard",
+    },
   },
-//   {
-//     path: '/about',
-//     name: 'About',
-//     // Lazy loading example:
-//     component: () => import('../views/About.vue')
-//   },
+  {
+    path: "/menu",
+    name: "Menu",
+    component: () => import("./views/Menu.vue"),
+    meta: {
+      title: "Menu",
+    },
+  },
+
   // Add more routes as needed
-]
+];
 
 // Create the router instance
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
