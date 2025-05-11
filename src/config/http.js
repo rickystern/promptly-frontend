@@ -6,7 +6,7 @@
 import axios from "axios";
 
 const http = axios.create({
-  baseURL: "http://promptly-api.test",
+  baseURL: "https://promptly.test/",
   timeout: 60000,
 });
 
