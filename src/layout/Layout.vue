@@ -6,7 +6,7 @@
   >
     <!-- Side Navigation - Full height, fixed width -->
     <div
-      class="xw-72 bg-white border-r border-gray-200 h-screen flex flex-col shrink-0"
+      class="bg-white border-r border-gray-200 h-screen flex flex-col shrink-0"
     >
       <!-- App Logo/Title -->
       <div class="px-6 py-5 flex items-center border-gray-200">
@@ -68,10 +68,10 @@
             </li>
             <li>
               <router-link
-                to="/diary-log"
+                to="/contact-log"
                 class="flex items-center px-6 py-3 text-sm font-medium w-full transition-colors"
                 :class="
-                  $route.path === '/diary-log'
+                  $route.path === '/contact-log'
                     ? 'text-indigo-600 bg-indigo-50 border-r-2 border-indigo-600'
                     : 'text-gray-700 hover:bg-gray-100'
                 "
@@ -80,7 +80,7 @@
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5 mr-3"
                   :class="
-                    $route.path === '/diary-log'
+                    $route.path === '/contact-log'
                       ? 'text-indigo-500'
                       : 'text-gray-500'
                   "
@@ -91,7 +91,7 @@
                     d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
                   />
                 </svg>
-                Diary Log
+                Contact Log
               </router-link>
             </li>
           </ul>

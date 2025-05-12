@@ -11,8 +11,9 @@ const http = axios.create({
 });
 
 http.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+http.defaults.headers.common["Accept"] = "application/json";
 http.defaults.headers.post["Content-Type"] = "application/json";
-http.defaults.headers.put["Accept"] = "application/json";
+http.defaults.headers.put["Content-Type"] = "application/json";
 http.defaults.withCredentials = true;
 
 // Request interceptor

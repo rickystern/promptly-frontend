@@ -13,7 +13,7 @@ export const authStore = defineStore("auth", {
 
     reset() {
       this.user = null;
-      localStorage.removeItem("user");
+      localStorage.clear();
     },
   },
 });

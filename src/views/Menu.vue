@@ -371,7 +371,7 @@ const clearAllTemplates = () => {
 const sendEmails = async () => {
   try {
     // Show loading state
-    const isLoading = ref(true);
+    // const isLoading = true;
 
     // Prepare the data to send to your backend
     const emailData = {
@@ -412,46 +412,8 @@ const sendEmails = async () => {
           }`
         );
       });
-
-    // // Make the API request
-    // const response = await fetch(
-    //   "https://promptly.test/api/customers/interactions/",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Accept: "application/json",
-    //       // Add any authentication headers if needed
-    //       // 'Authorization': `Bearer ${yourAuthToken}`
-    //     },
-    //     body: JSON.stringify(emailData),
-    //   }
-    // );
-
-    // // Check if the request was successful
-    // if (!response.ok) {
-    //   // Get error details from response if available
-    //   let errorDetails = "";
-    //   try {
-    //     const errorData = await response.json();
-    //     errorDetails = errorData.message || "";
-    //   } catch (e) {
-    //     // If response isn't JSON, use status text
-    //     errorDetails = response.statusText;
-    //   }
-
-    //   throw new Error(`Failed to send emails. ${errorDetails}`);
-    // }
-
-    // // Parse the successful response
-    // const result = await response.json();
-
-    // console.log("API response:", result);
-
-    // Optionally navigate to a confirmation page
-    // router.push("/confirmation");
   } catch (error) {
-    console.error("Error sending emails:", error);
+    console.error("Error sending emails try catch:", error);
     alert(
       `Error: ${
         error.message ||
@@ -460,7 +422,7 @@ const sendEmails = async () => {
     );
   } finally {
     // Reset loading state
-    isLoading.value = false;
+    // isLoading.value = false;
   }
 };
 </script>

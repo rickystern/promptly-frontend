@@ -25,7 +25,29 @@ const routes = [
     },
   },
 
+  {
+    path: "/contact-log",
+    name: "ContactLog",
+    component: () => import("./views/ContactLog.vue"),
+    meta: {
+      title: "Contact Log",
+    },
+  },
+
+  {
+    path: "/company/register",
+    name: "CompanyRegistration",
+    component: () => import("./views/company/CompanyRegistration.vue"),
+    meta: { standalone: true },
+  },
+
   // Add more routes as needed
+
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: () => import("./views/NotFound.vue"), // Create a simple 404 page
+  },
 ];
 
 // Create the router instance

@@ -4,7 +4,7 @@ import api from "../config/http";
 export default {
   // Create a new interaction
   createInteraction(data) {
-    return api.post("/customers/interactions", data);
+    return api.post("/api/interactions", data);
   },
 
   //   // Get all customers
